@@ -1,0 +1,8 @@
+{
+  "1TiukRRjshOUKm6eudSooK5nkk32hQn6Q": { "order": 1, "title": "Gordito Campechanas", "client": "MEY DEY", "tag_es": "Reel", "tag_en": "Reel", "metrics": [] },
+  "18fPjwqUXsceqKgzxA75A8qOpM8duVGrQ": { "order": 2, "title": "Tacos de chicharrón de Ribeye", "client": "MEY DEY", "tag_es": "Reel", "tag_en": "Reel", "metrics": [] },
+  "10T6uw4YNruo9vgQisBvHc9AOSXgx8fRZ": { "order": 3, "title": "Con Gorditos: Tomahawk", "client": "MEY DEY", "tag_es": "Reel", "tag_en": "Reel", "metrics": [] },
+  "1wryZGsrixY3MkVI7Q6aYxMjMfQjelf3-": { "order": 4, "title": "Reel 1, Semana 1", "client": "MEY DEY", "tag_es": "Reel", "tag_en": "Reel", "loopStart": 4, "metrics": [] },
+  "1CE0A-vtdnEWtZ6tSFYn4cLvGSkpcLVqv": { "order": 5, "title": "Expo GamexZonee", "loopStart": 5, "client": "GamexZonee", "tag_es": "Spot promocional", "tag_en": "Promo spot", "desc_es": "Video promocional para evento gamer con montaje cinematográfico y color grading.", "desc_en": "Promotional spot for a gaming expo with cinematic editing and color grading.", "metrics": [] },
+  "1YPM_cn_Jn0yUEHYDiuWQY7r2nREqRHLC": { "order": 6, "title": "Anuncio Publicitario Carlotas", "client": null, "tag_es": "Spot institucional", "tag_en": "Institutional spot", "desc_es": "Video institucional grabado en aula con enfoque informativo y publicitario.", "desc_en": "Institutional video filmed in a classroom with an informative and advertising focus.", "metrics": [] }
+}
