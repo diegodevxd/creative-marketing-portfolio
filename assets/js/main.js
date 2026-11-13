@@ -1,5 +1,5 @@
 /* =========================================================
-   FERMnke — comportamiento editorial (vanilla ES2019)
+   FERMnke / comportamiento editorial e interactivo (ES2019)
    ========================================================= */
 
 (function () {
@@ -11,30 +11,53 @@
 
   var I18N = {
     es: {
-      meta_title: 'FERMnke — Edición de video y marketing digital',
+      meta_title: 'FERMnke / Edición de video y marketing digital',
       meta_description:
         'Portafolio de edición de video y marketing digital: reels, spots y contenido para marcas.',
       nav_home: 'Inicio',
       nav_reel: 'Reel',
       nav_cases: 'Casos',
-      nav_index: 'Índice',
+      nav_index: 'Archivo',
       nav_profile: 'Perfil',
       nav_contact: 'Contacto',
       nav_menu: 'Menú',
       menu_close: 'Cerrar',
-      hero_tagline: 'Edición de video y marketing digital',
-      hero_work: 'Ver trabajo ↓',
-      hero_contact: 'Contacto ↗',
+      hero_badge: 'Disponible para proyectos',
+      hero_display: 'EDICIÓN & MARKETING',
+      hero_tagline:
+        'Reels, spots y montaje estratégico diseñados para maximizar retención y conversión de marca.',
+      hero_work: 'Ver trabajo',
+      hero_contact: 'Hablemos',
+      hero_play_aria: 'Reproducir video completo',
+      hero_progress_aria: 'Selector de reel destacado',
+      pill_reels: 'Reels 9:16',
+      pill_spots: 'Spots Comerciales',
+      pill_retention: 'Retention Editing',
+      pill_sound: 'Sound & Color',
       reel_title: 'EL REEL',
+      reel_subtitle:
+        'Montaje de ritmo rápido, retención y piezas comerciales en reproducción continua.',
       reel_region: 'Carrusel de videos',
-      reel_prev: '← Anterior',
-      reel_next: 'Siguiente →',
-      cases_title: 'CASOS',
+      reel_prev: 'Anterior',
+      reel_next: 'Siguiente',
+      filter_region: 'Filtrar por formato',
+      filter_all: 'Todos',
+      filter_vertical: 'Reels 9:16',
+      filter_horizontal: 'Spots',
+      cases_title: 'CASOS DE ESTUDIO',
+      cases_subtitle:
+        'Desglose de producción, formato y enfoque estratégico de cada pieza.',
       case_client: 'Cliente',
       case_type: 'Tipo',
       case_format: 'Formato',
       case_open: 'Ver completo',
-      index_title: 'ÍNDICE',
+      spec_format: 'Formato',
+      spec_delivery: 'Entrega',
+      spec_focus: 'Enfoque',
+      spec_sync: 'Archivo Drive',
+      cases_show_all: 'Ver todos los casos',
+      cases_show_less: 'Mostrar menos',
+      index_title: 'ARCHIVO',
       index_region: 'Índice de proyectos',
       index_go: 'Ir al caso',
       open_video: 'Abrir',
@@ -45,9 +68,24 @@
         'Me especializo en la edición de video con un enfoque centrado en engagement, ritmo dinámico y retención de audiencia. Combino principios psicológicos del marketing con técnicas de montaje y diseño sonoro para potenciar marcas personales y comerciales.',
       about_p3:
         'Este portafolio reúne reels para redes sociales y spots publicitarios.',
-      tools_title: 'Herramientas',
+      method_1_title: 'Retención & Hook',
+      method_1_desc:
+        'Primeros 3 segundos diseñados para frenar el scroll y sostener el watch time.',
+      method_2_title: 'Diseño Sonoro',
+      method_2_desc:
+        'Capas rítmicas, transiciones acústicas y mezcla limpia para impacto inmediato.',
+      method_3_title: 'Psicología de Marca',
+      method_3_desc:
+        'Narrativa visual alineada a objetivos comerciales y posicionamiento digital.',
+      tools_title: 'Stack de Producción',
+      tool_pr_role: 'Montaje narrativo, ritmo y color base',
+      tool_ae_role: 'Motion graphics, tracking y composición',
+      tool_cp_role: 'Edición ágil de reels y subtítulos dinámicos',
       contact_title: 'HABLEMOS',
+      contact_subtitle:
+        'Disponible para edición mensual de reels, spots de marca y campañas digitales.',
       footer_text: '© 2026 FERMnke · UEPCA',
+      footer_drive: 'Carpeta Drive ↗',
       modal_drive: 'Ver en Drive ↗',
       modal_prev: 'Anterior',
       modal_next: 'Siguiente',
@@ -56,43 +94,81 @@
       load_error_link: 'Abrir la carpeta en Drive',
     },
     en: {
-      meta_title: 'FERMnke — Video editing and digital marketing',
+      meta_title: 'FERMnke / Video editing and digital marketing',
       meta_description:
         'Video editing and digital marketing portfolio: reels, spots, and content for brands.',
       nav_home: 'Home',
       nav_reel: 'Reel',
       nav_cases: 'Cases',
-      nav_index: 'Index',
+      nav_index: 'Archive',
       nav_profile: 'Profile',
       nav_contact: 'Contact',
       nav_menu: 'Menu',
       menu_close: 'Close',
-      hero_tagline: 'Video editing and digital marketing',
-      hero_work: 'See work ↓',
-      hero_contact: 'Contact ↗',
+      hero_badge: 'Available for projects',
+      hero_display: 'EDITING & MARKETING',
+      hero_tagline:
+        'Reels, spots, and strategic editing built to maximize audience retention and brand conversion.',
+      hero_work: 'See work',
+      hero_contact: "Let's talk",
+      hero_play_aria: 'Watch full video',
+      hero_progress_aria: 'Featured reel selector',
+      pill_reels: '9:16 Reels',
+      pill_spots: 'Commercial Spots',
+      pill_retention: 'Retention Editing',
+      pill_sound: 'Sound & Color',
       reel_title: 'THE REEL',
+      reel_subtitle:
+        'Fast-paced editing, audience retention, and commercial brand pieces in continuous playback.',
       reel_region: 'Video carousel',
-      reel_prev: '← Previous',
-      reel_next: 'Next →',
-      cases_title: 'CASES',
+      reel_prev: 'Previous',
+      reel_next: 'Next',
+      filter_region: 'Filter by format',
+      filter_all: 'All',
+      filter_vertical: '9:16 Reels',
+      filter_horizontal: 'Spots',
+      cases_title: 'CASE STUDIES',
+      cases_subtitle:
+        'Production breakdown, format specs, and strategic approach behind each piece.',
       case_client: 'Client',
       case_type: 'Type',
       case_format: 'Format',
       case_open: 'Watch full',
-      index_title: 'INDEX',
+      spec_format: 'Format',
+      spec_delivery: 'Delivery',
+      spec_focus: 'Focus',
+      spec_sync: 'Drive Sync',
+      cases_show_all: 'Show all cases',
+      cases_show_less: 'Show fewer',
+      index_title: 'ARCHIVE',
       index_region: 'Project index',
       index_go: 'Go to case',
       open_video: 'Open',
       profile_title: 'ABOUT ME',
       about_p1:
-        'Hi, I\'m <strong>FERMnke</strong>, content creator and <strong>Marketing</strong> student at <strong>UEPCA</strong>.',
+        "Hi, I'm <strong>FERMnke</strong>, content creator and <strong>Marketing</strong> student at <strong>UEPCA</strong>.",
       about_p2:
         'I specialize in video editing focused on engagement, rapid rhythm, and audience retention. I combine psychological marketing principles with dynamic cuts and sound design to elevate personal and commercial brands.',
       about_p3:
         'This portfolio brings together social media reels and advertising spots.',
-      tools_title: 'Tools',
-      contact_title: 'LET\'S TALK',
+      method_1_title: 'Retention & Hook',
+      method_1_desc:
+        'First 3 seconds engineered to stop the scroll and sustain watch time.',
+      method_2_title: 'Sound Design',
+      method_2_desc:
+        'Rhythmic layers, acoustic transitions, and clean mixing for instant impact.',
+      method_3_title: 'Brand Psychology',
+      method_3_desc:
+        'Visual storytelling aligned with commercial goals and digital positioning.',
+      tools_title: 'Production Stack',
+      tool_pr_role: 'Narrative cut, pacing, and base color',
+      tool_ae_role: 'Motion graphics, tracking, and compositing',
+      tool_cp_role: 'Fast reel turnaround and kinetic captions',
+      contact_title: "LET'S TALK",
+      contact_subtitle:
+        'Available for monthly reel retainers, brand spots, and digital campaigns.',
       footer_text: '© 2026 FERMnke · UEPCA',
+      footer_drive: 'Drive Folder ↗',
       modal_drive: 'Open in Drive ↗',
       modal_prev: 'Previous',
       modal_next: 'Next',
@@ -105,9 +181,14 @@
   var state = {
     lang: 'es',
     videos: [],
+    filteredReelVideos: [],
+    reelFilter: 'all',
+    reelActiveIdx: 0,
+    casesExpandedMobile: false,
     reduced: false,
     loadError: false,
     heroItems: [],
+    heroSegments: [],
     heroIndex: 0,
     heroVisible: true,
     heroTimer: null,
@@ -118,7 +199,9 @@
   var els = {};
   var observedVideos = new WeakSet();
   var playbackObserver = null;
-  var paletteObserver = null;
+  var revealObserver = null;
+  var reelCenterObserver = null;
+  var navObserver = null;
 
   function t(key) {
     var dict = I18N[state.lang] || I18N.es;
@@ -129,8 +212,14 @@
     return video.client || video.title;
   }
 
+  function isMobileViewport() {
+    return window.matchMedia('(max-width: 767px)').matches;
+  }
+
   function formatRatio(video) {
-    if (!video.width || !video.height) return null;
+    if (!video.width || !video.height) {
+      return video.orientation === 'horizontal' ? '16:9' : '9:16';
+    }
     var a = video.width;
     var b = video.height;
     while (b) {
@@ -144,6 +233,10 @@
 
   function driveThumb(id) {
     return 'https://drive.google.com/thumbnail?id=' + id + '&sz=w800';
+  }
+
+  function posterUrlFor(video) {
+    return video.poster || driveThumb(video.id);
   }
 
   function aspectString(video) {
@@ -174,17 +267,15 @@
     img.loading = 'lazy';
     img.decoding = 'async';
     img.alt = decorative ? '' : video.title || '';
-    img.src = video.loop
-      ? video.poster || driveThumb(video.id)
-      : driveThumb(video.id);
+    img.src = posterUrlFor(video);
     return img;
   }
 
-  function mediaFor(video) {
-    if (!state.reduced && video.loop) {
+  function mediaFor(video, forcePoster) {
+    if (!forcePoster && !state.reduced && video.loop) {
       return buildVideoElement(video);
     }
-    return buildPosterImage(video);
+    return buildPosterImage(video, true);
   }
 
   function observePlayback(video) {
@@ -215,13 +306,107 @@
   }
 
   /* -------------------------------------------------------
+     Smart Fullstack Fallback & Spec Generator
+     ------------------------------------------------------- */
+
+  function getCaseDetails(video) {
+    var ratio = formatRatio(video);
+    var resolution =
+      video.width && video.height ? video.width + '×' + video.height : ratio;
+    var clientName = video.client || (state.lang === 'en' ? 'Brand Production' : 'Producción de marca');
+    var isHorizontal = video.orientation === 'horizontal';
+
+    var descEs = video.desc_es;
+    var descEn = video.desc_en;
+
+    if (!descEs) {
+      descEs = isHorizontal
+        ? 'Pieza audiovisual panorámica producida para ' +
+          clientName +
+          '. Montaje cinematográfico, ritmo visual controlado y gradación de color orientada a campañas digitales.'
+        : 'Pieza vertical optimizada para retención en redes sociales para ' +
+          clientName +
+          '. Montaje rítmico con cortes dinámicos, acentos sonoros y encuadre 9:16 nativo.';
+    }
+
+    if (!descEn) {
+      descEn = isHorizontal
+        ? 'Widescreen commercial piece produced for ' +
+          clientName +
+          '. Built with cinematic pacing, intentional transitions, and color grading for digital campaigns.'
+        : 'Vertical reel engineered for social retention for ' +
+          clientName +
+          '. Fast-paced editing with rhythmic cuts, sound accents, and native 9:16 framing.';
+    }
+
+    var specs = [
+      {
+        labelKey: 'spec_format',
+        value: ratio + ' (' + resolution + ')',
+      },
+      {
+        labelKey: 'spec_delivery',
+        value: isHorizontal
+          ? state.lang === 'en'
+            ? '16:9 Spot'
+            : 'Spot 16:9'
+          : state.lang === 'en'
+            ? 'Social Reel'
+            : 'Reel Social',
+      },
+      {
+        labelKey: 'spec_focus',
+        value: isHorizontal
+          ? state.lang === 'en'
+            ? 'Brand Story'
+            : 'Narrativa'
+          : state.lang === 'en'
+            ? 'Retention'
+            : 'Retención',
+      },
+      {
+        labelKey: 'spec_sync',
+        value: video.driveModified || 'Drive Live',
+      },
+    ];
+
+    var tags = isHorizontal
+      ? state.lang === 'en'
+        ? ['Cinematography', 'Color Grading', 'Sound Mix']
+        : ['Montaje Spot', 'Color Grading', 'Mezcla']
+      : state.lang === 'en'
+        ? ['Hook Pacing', 'Sound Design', '9:16 Native']
+        : ['Corte Dinámico', 'Sound Design', '9:16 Nativo'];
+
+    return {
+      desc: state.lang === 'en' ? descEn : descEs,
+      specs: specs,
+      tags: tags,
+    };
+  }
+
+  /* -------------------------------------------------------
      Hero
      ------------------------------------------------------- */
+
+  function startHeroTimer() {
+    if (state.heroTimer) {
+      window.clearInterval(state.heroTimer);
+      state.heroTimer = null;
+    }
+    if (state.reduced || state.heroItems.length <= 1) return;
+    state.heroTimer = window.setInterval(function () {
+      if (!state.heroVisible) return;
+      activateHero((state.heroIndex + 1) % state.heroItems.length);
+    }, 5000);
+  }
 
   function renderHero() {
     if (!els.heroStage) return;
     els.heroStage.innerHTML = '';
+    if (els.heroProgress) els.heroProgress.innerHTML = '';
     state.heroItems = [];
+    state.heroSegments = [];
 
     var verticals = state.videos.filter(function (video) {
       return video.orientation === 'vertical';
@@ -229,7 +414,7 @@
     var list = verticals.length ? verticals : state.videos;
     if (!list.length) return;
 
-    list.forEach(function (video) {
+    list.forEach(function (video, idx) {
       var layer = document.createElement('div');
       layer.className = 'hero-layer';
 
@@ -243,17 +428,31 @@
       }
 
       els.heroStage.appendChild(layer);
+
+      if (els.heroProgress) {
+        var seg = document.createElement('button');
+        seg.type = 'button';
+        seg.className = 'hero-progress-seg';
+        seg.setAttribute('role', 'tab');
+        seg.setAttribute('aria-label', (video.client ? video.client + ' · ' : '') + (video.title || ''));
+        seg.dataset.heroIdx = String(idx);
+
+        var fill = document.createElement('span');
+        fill.className = 'hero-progress-fill';
+        seg.appendChild(fill);
+
+        seg.addEventListener('click', function () {
+          activateHero(idx);
+          startHeroTimer();
+        });
+
+        els.heroProgress.appendChild(seg);
+        state.heroSegments.push(seg);
+      }
     });
 
     activateHero(0);
-
-    if (!state.reduced && state.heroItems.length > 1) {
-      if (state.heroTimer) window.clearInterval(state.heroTimer);
-      state.heroTimer = window.setInterval(function () {
-        if (!state.heroVisible) return;
-        activateHero((state.heroIndex + 1) % state.heroItems.length);
-      }, 5000);
-    }
+    startHeroTimer();
   }
 
   function activateHero(index) {
@@ -263,19 +462,37 @@
       var active = i === index;
       item.layer.classList.toggle('is-active', active);
 
-      if (!item.player) return;
-      if (active && state.heroVisible) {
-        var promise = item.player.play();
-        if (promise && typeof promise.catch === 'function') {
-          promise.catch(function () {});
+      if (item.player) {
+        if (active && state.heroVisible) {
+          var promise = item.player.play();
+          if (promise && typeof promise.catch === 'function') {
+            promise.catch(function () {});
+          }
+        } else {
+          item.player.pause();
         }
-      } else {
-        item.player.pause();
+      }
+    });
+
+    state.heroSegments.forEach(function (seg, i) {
+      seg.classList.remove('is-active', 'is-past');
+      seg.setAttribute('aria-selected', String(i === index));
+      if (i < index) {
+        seg.classList.add('is-past');
+      } else if (i === index) {
+        void seg.offsetWidth;
+        seg.classList.add('is-active');
       }
     });
 
     var current = state.heroItems[index];
     if (!current) return;
+
+    if (els.heroAmbient) {
+      els.heroAmbient.style.backgroundImage =
+        'url("' + posterUrlFor(current.video) + '")';
+    }
+
     els.heroClient.textContent = current.video.client || '';
     els.heroTitleLabel.textContent = current.video.title || '';
     els.heroSep.hidden = !current.video.client;
@@ -303,70 +520,180 @@
   }
 
   /* -------------------------------------------------------
-     Reel
+     Reel / 21st.dev Focal-Scale Carousel & Filter
      ------------------------------------------------------- */
+
+  function updateReelProgress(activePos, total) {
+    if (!els.reelProgressFill || !els.reelCounter) return;
+    var safeTotal = Math.max(total, 1);
+    var safePos = Math.min(Math.max(activePos, 0), safeTotal - 1);
+    var pct = ((safePos + 1) / safeTotal) * 100;
+    els.reelProgressFill.style.width = pct + '%';
+    els.reelCounter.textContent =
+      String(safePos + 1).padStart(2, '0') +
+      ' / ' +
+      String(safeTotal).padStart(2, '0');
+  }
+
+  function setupReelCenterObserver() {
+    if (reelCenterObserver) {
+      reelCenterObserver.disconnect();
+    }
+    if (!els.reelViewport || !els.reelTrack || !('IntersectionObserver' in window)) {
+      return;
+    }
+
+    var items = Array.prototype.slice.call(
+      els.reelTrack.querySelectorAll('.reel-item')
+    );
+    if (!items.length) return;
+
+    reelCenterObserver = new IntersectionObserver(
+      function (entries) {
+        var bestEntry = null;
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          if (
+            !bestEntry ||
+            entry.intersectionRatio > bestEntry.intersectionRatio
+          ) {
+            bestEntry = entry;
+          }
+        });
+        if (!bestEntry) return;
+        var activePos = Number(bestEntry.target.dataset.pos || 0);
+        state.reelActiveIdx = activePos;
+        items.forEach(function (el) {
+          el.classList.toggle('is-centered', el === bestEntry.target);
+        });
+        updateReelProgress(activePos, items.length);
+      },
+      {
+        root: els.reelViewport,
+        threshold: [0.55, 0.75, 0.95],
+      }
+    );
+
+    items.forEach(function (item) {
+      reelCenterObserver.observe(item);
+    });
+  }
 
   function renderReel() {
     if (!els.reelTrack) return;
     els.reelTrack.innerHTML = '';
 
-    state.videos.forEach(function (video, index) {
+    var itemsWithIndex = [];
+    state.videos.forEach(function (video, globalIndex) {
+      if (state.reelFilter === 'all' || video.orientation === state.reelFilter) {
+        itemsWithIndex.push({ video: video, globalIndex: globalIndex });
+      }
+    });
+
+    state.filteredReelVideos = itemsWithIndex;
+    state.reelActiveIdx = 0;
+
+    itemsWithIndex.forEach(function (entry, pos) {
+      var video = entry.video;
+      var globalIndex = entry.globalIndex;
+
       var item = document.createElement('article');
-      item.className = 'reel-item';
-      item.dataset.index = String(index);
+      item.className = 'reel-item' + (pos === 0 ? ' is-centered' : '');
+      item.dataset.index = String(globalIndex);
+      item.dataset.pos = String(pos);
+
+      var shell = document.createElement('div');
+      shell.className = 'reel-card-shell bezel-shell spotlight-card';
 
       var button = document.createElement('button');
       button.type = 'button';
       button.className = 'reel-media-btn';
-      button.dataset.index = String(index);
+      button.dataset.index = String(globalIndex);
 
       var media = document.createElement('div');
       media.className = 'reel-media';
       media.style.setProperty('--ar', aspectString(video));
 
-      var mediaEl = mediaFor(video);
+      var mediaEl = mediaFor(video, false);
       media.appendChild(mediaEl);
+
+      var overlay = document.createElement('div');
+      overlay.className = 'reel-card-overlay';
+
+      var tagPill = document.createElement('span');
+      tagPill.className = 'reel-tag-pill';
+      tagPill.textContent =
+        (state.lang === 'en' ? video.tag_en : video.tag_es) ||
+        formatRatio(video);
+
+      var playBadge = document.createElement('span');
+      playBadge.className = 'reel-play-badge';
+      playBadge.setAttribute('aria-hidden', 'true');
+      var tri = document.createElement('span');
+      tri.className = 'play-triangle';
+      playBadge.appendChild(tri);
+
+      overlay.appendChild(tagPill);
+      overlay.appendChild(playBadge);
+      media.appendChild(overlay);
       button.appendChild(media);
+
+      var meta = document.createElement('div');
+      meta.className = 'reel-meta';
 
       var label = document.createElement('h3');
       label.className = 'reel-label';
       label.textContent = videoLabel(video);
+      meta.appendChild(label);
 
-      item.appendChild(button);
-      item.appendChild(label);
       if (video.client) {
         var sublabel = document.createElement('p');
         sublabel.className = 'reel-sublabel';
         sublabel.textContent = video.title || '';
-        item.appendChild(sublabel);
+        meta.appendChild(sublabel);
       }
+
+      button.appendChild(meta);
+      shell.appendChild(button);
+      item.appendChild(shell);
       els.reelTrack.appendChild(item);
     });
 
-    els.reelTrack.querySelectorAll('video').forEach(observePlayback);
+    if (els.reelViewport) els.reelViewport.scrollLeft = 0;
 
-    if (els.reelControls) els.reelControls.hidden = false;
+    els.reelTrack.querySelectorAll('video').forEach(observePlayback);
+    setupReelCenterObserver();
+    updateReelProgress(0, itemsWithIndex.length);
+
+    if (els.reelControls) {
+      els.reelControls.hidden = itemsWithIndex.length === 0;
+    }
   }
 
   function scrollReel(direction) {
-    if (!els.reelViewport) return;
-    var first = els.reelTrack
-      ? els.reelTrack.querySelector('.reel-item')
-      : null;
-    var gap = 0;
-    if (els.reelTrack) {
-      gap =
-        parseFloat(window.getComputedStyle(els.reelTrack).columnGap || '0') ||
-        0;
-    }
-    var step = first
-      ? first.getBoundingClientRect().width + gap
-      : els.reelViewport.clientWidth * 0.8;
+    if (!els.reelViewport || !els.reelTrack) return;
+    var items = Array.prototype.slice.call(
+      els.reelTrack.querySelectorAll('.reel-item')
+    );
+    if (!items.length) return;
 
-    els.reelViewport.scrollBy({
-      left: direction * step,
-      behavior: state.reduced ? 'auto' : 'smooth',
-    });
+    var nextPos = Math.min(
+      Math.max(state.reelActiveIdx + direction, 0),
+      items.length - 1
+    );
+    var target = items[nextPos];
+    if (target && typeof target.scrollIntoView === 'function') {
+      target.scrollIntoView({
+        behavior: state.reduced ? 'auto' : 'smooth',
+        inline: 'center',
+        block: 'nearest',
+      });
+      state.reelActiveIdx = nextPos;
+      items.forEach(function (el, idx) {
+        el.classList.toggle('is-centered', idx === nextPos);
+      });
+      updateReelProgress(nextPos, items.length);
+    }
   }
 
   function bindReelInteractions() {
@@ -441,103 +768,149 @@
         scrollReel(1);
       });
     }
+
+    if (els.reelFilters) {
+      els.reelFilters.addEventListener('click', function (event) {
+        var btn = event.target.closest('.filter-pill');
+        if (!btn) return;
+        var nextFilter = btn.dataset.filter || 'all';
+        if (nextFilter === state.reelFilter) return;
+        state.reelFilter = nextFilter;
+
+        els.reelFilters.querySelectorAll('.filter-pill').forEach(function (el) {
+          var active = el === btn;
+          el.classList.toggle('is-active', active);
+          el.setAttribute('aria-pressed', String(active));
+        });
+
+        renderReel();
+        updateDynamicText();
+      });
+    }
   }
 
   /* -------------------------------------------------------
-     Casos
+     Cases / Asymmetric Bento (PC) & Compact Cards (Mobile)
      ------------------------------------------------------- */
 
   function renderCases() {
     if (!els.casesList) return;
     els.casesList.innerHTML = '';
 
+    var mobileMode = isMobileViewport();
+
+    // Determine if the last vertical card sits alone on an odd row (desktop 2-col rhythm)
+    var verticalIndices = [];
+    state.videos.forEach(function (v, idx) {
+      if (v.orientation !== 'horizontal') verticalIndices.push(idx);
+    });
+    // Check runs of consecutive vertical items
+    var oddVerticalIndices = new Set();
+    var runCount = 0;
+    state.videos.forEach(function (v, idx) {
+      if (v.orientation === 'horizontal') {
+        if (runCount % 2 === 1 && idx > 0) {
+          oddVerticalIndices.add(idx - 1);
+        }
+        runCount = 0;
+      } else {
+        runCount += 1;
+      }
+    });
+    if (runCount % 2 === 1 && state.videos.length > 0) {
+      oddVerticalIndices.add(state.videos.length - 1);
+    }
+
     state.videos.forEach(function (video, index) {
+      var isHorizontal = video.orientation === 'horizontal';
+      var isLastOdd = !isHorizontal && oddVerticalIndices.has(index);
+
       var article = document.createElement('article');
-      article.className = 'case' + (index % 2 === 1 ? ' alt' : '');
+      article.className =
+        'case bezel-shell spotlight-card reveal ' +
+        (isHorizontal ? 'case--horizontal' : 'case--vertical') +
+        (isLastOdd ? ' is-last-odd' : '');
       article.id = 'caso-' + video.id;
-      article.dataset.palette = index % 2 === 0 ? 'ink' : 'paper';
       article.dataset.index = String(index);
 
-      var head = document.createElement('div');
-      head.className = 'case-head';
+      var core = document.createElement('div');
+      core.className = 'bezel-core case-core';
 
-      var number = document.createElement('span');
-      number.className = 'case-number';
-      number.textContent = String(index + 1).padStart(2, '0');
+      var grid = document.createElement('div');
+      grid.className = 'case-grid';
 
-      var heading = document.createElement('div');
-
-      var title = document.createElement('h3');
-      title.className = 'case-title';
-      title.textContent = video.title || '';
-
-      var ficha = document.createElement('dl');
-      ficha.className = 'case-ficha';
-
-      if (video.client) {
-        var clientRow = document.createElement('div');
-        var clientLabel = document.createElement('dt');
-        clientLabel.dataset.i18n = 'case_client';
-        clientLabel.textContent = t('case_client');
-        var clientValue = document.createElement('dd');
-        clientValue.textContent = video.client;
-        clientRow.appendChild(clientLabel);
-        clientRow.appendChild(clientValue);
-        ficha.appendChild(clientRow);
-      }
-
-      var tag = state.lang === 'en' ? video.tag_en : video.tag_es;
-      if (tag) {
-        var typeRow = document.createElement('div');
-        typeRow.className = 'ficha-type';
-        var typeLabel = document.createElement('dt');
-        typeLabel.dataset.i18n = 'case_type';
-        typeLabel.textContent = t('case_type');
-        var typeValue = document.createElement('dd');
-        typeValue.className = 'case-type';
-        typeValue.textContent = tag;
-        typeRow.appendChild(typeLabel);
-        typeRow.appendChild(typeValue);
-        ficha.appendChild(typeRow);
-      }
-
-      var ratio = formatRatio(video);
-      if (ratio) {
-        var formatRow = document.createElement('div');
-        var formatLabel = document.createElement('dt');
-        formatLabel.dataset.i18n = 'case_format';
-        formatLabel.textContent = t('case_format');
-        var formatValue = document.createElement('dd');
-        formatValue.textContent = ratio;
-        formatRow.appendChild(formatLabel);
-        formatRow.appendChild(formatValue);
-        ficha.appendChild(formatRow);
-      }
-
-      heading.appendChild(title);
-      heading.appendChild(ficha);
-      head.appendChild(number);
-      head.appendChild(heading);
-
-      var body = document.createElement('div');
-      body.className = 'case-body';
+      // Column 1: Media button
+      var mediaBtn = document.createElement('button');
+      mediaBtn.type = 'button';
+      mediaBtn.className = 'case-media-wrap';
+      mediaBtn.dataset.index = String(index);
 
       var media = document.createElement('div');
       media.className = 'case-media';
       media.style.setProperty('--ar', aspectString(video));
-      media.style.setProperty(
-        '--r',
-        String(video.width && video.height ? video.width / video.height : 16 / 9)
-      );
-      var mediaEl = mediaFor(video);
-      media.appendChild(mediaEl);
+      media.appendChild(mediaFor(video, mobileMode));
+
+      var playCircle = document.createElement('span');
+      playCircle.className = 'case-media-play';
+      playCircle.setAttribute('aria-hidden', 'true');
+      var playTri = document.createElement('span');
+      playTri.className = 'play-triangle';
+      playCircle.appendChild(playTri);
+
+      mediaBtn.appendChild(media);
+      mediaBtn.appendChild(playCircle);
+
+      // Column 2 (+ optional Column 3 on .is-last-odd): Info wrapper
+      var info = document.createElement('div');
+      info.className = 'case-info';
 
       var copy = document.createElement('div');
       copy.className = 'case-copy';
 
+      var headMeta = document.createElement('div');
+      headMeta.className = 'case-head-meta';
+
+      var number = document.createElement('span');
+      number.className = 'case-number';
+      number.textContent = String(index + 1).padStart(2, '0');
+      headMeta.appendChild(number);
+
+      var badges = document.createElement('div');
+      badges.className = 'case-badges';
+
+      if (video.client) {
+        var clientPill = document.createElement('span');
+        clientPill.className = 'case-pill is-client';
+        clientPill.textContent = video.client;
+        badges.appendChild(clientPill);
+      }
+
+      var typePill = document.createElement('span');
+      typePill.className = 'case-pill case-type';
+      badges.appendChild(typePill);
+
+      headMeta.appendChild(badges);
+      copy.appendChild(headMeta);
+
+      var title = document.createElement('h3');
+      title.className = 'case-title';
+      title.textContent = video.title || '';
+      copy.appendChild(title);
+
       var desc = document.createElement('p');
       desc.className = 'case-desc';
       copy.appendChild(desc);
+
+      var tagsWrap = document.createElement('div');
+      tagsWrap.className = 'case-tags';
+      copy.appendChild(tagsWrap);
+
+      var sideCol = document.createElement('div');
+      sideCol.className = 'case-side-col';
+
+      var specsList = document.createElement('dl');
+      specsList.className = 'case-specs';
+      sideCol.appendChild(specsList);
 
       if (video.metrics && video.metrics.length) {
         var metrics = document.createElement('ul');
@@ -555,35 +928,90 @@
           item.appendChild(label);
           metrics.appendChild(item);
         });
-        copy.appendChild(metrics);
+        sideCol.appendChild(metrics);
       }
 
-      var open = document.createElement('button');
-      open.type = 'button';
-      open.className = 'case-open';
-      open.dataset.i18n = 'case_open';
-      open.dataset.index = String(index);
-      open.textContent = t('case_open');
-      copy.appendChild(open);
+      var actions = document.createElement('div');
+      actions.className = 'case-actions';
 
-      body.appendChild(media);
-      body.appendChild(copy);
+      var openBtn = document.createElement('button');
+      openBtn.type = 'button';
+      openBtn.className = 'case-open';
+      openBtn.dataset.index = String(index);
 
-      article.appendChild(head);
-      article.appendChild(body);
+      var openText = document.createElement('span');
+      openText.className = 'case-open-label';
+      openText.textContent = t('case_open');
+
+      var openCircle = document.createElement('span');
+      openCircle.className = 'btn-circle';
+      openCircle.setAttribute('aria-hidden', 'true');
+      openCircle.textContent = '↗';
+
+      openBtn.appendChild(openText);
+      openBtn.appendChild(openCircle);
+      actions.appendChild(openBtn);
+      sideCol.appendChild(actions);
+
+      info.appendChild(copy);
+      info.appendChild(sideCol);
+
+      grid.appendChild(mediaBtn);
+      grid.appendChild(info);
+      core.appendChild(grid);
+      article.appendChild(core);
       els.casesList.appendChild(article);
     });
 
-    els.casesList.querySelectorAll('video').forEach(observePlayback);
+    if (!mobileMode) {
+      els.casesList.querySelectorAll('video').forEach(observePlayback);
+    }
+
+    syncMobileCasesState();
+    observeReveals();
+  }
+
+  function syncMobileCasesState() {
+    if (!els.casesList || !els.casesToggleWrap || !els.casesToggleBtn) return;
+    var hasExtra = state.videos.length > 3 && isMobileViewport();
+    els.casesToggleWrap.hidden = !hasExtra;
+    els.casesList.classList.toggle(
+      'is-mobile-collapsed',
+      hasExtra && !state.casesExpandedMobile
+    );
+    els.casesToggleBtn.textContent = t(
+      state.casesExpandedMobile ? 'cases_show_less' : 'cases_show_all'
+    );
   }
 
   /* -------------------------------------------------------
-     Índice
+     Index / Interactive Hover-Preview Archive
      ------------------------------------------------------- */
+
+  function updateIndexPreview(video) {
+    if (!els.indexPreview || !video) return;
+    if (els.indexPreviewImg) {
+      els.indexPreviewImg.src = posterUrlFor(video);
+      els.indexPreviewImg.alt = video.title || '';
+    }
+    if (els.indexPreviewClient) {
+      els.indexPreviewClient.textContent =
+        (video.client || (state.lang === 'en' ? 'Project' : 'Proyecto')) +
+        ' · ' +
+        formatRatio(video);
+    }
+    if (els.indexPreviewTitle) {
+      els.indexPreviewTitle.textContent = video.title || '';
+    }
+  }
 
   function renderIndex() {
     if (!els.indexList) return;
     els.indexList.innerHTML = '';
+
+    if (els.indexCount) {
+      els.indexCount.textContent = String(state.videos.length).padStart(2, '0');
+    }
 
     state.videos.forEach(function (video, index) {
       var link = document.createElement('a');
@@ -592,28 +1020,70 @@
       link.dataset.index = String(index);
       link.setAttribute('role', 'listitem');
 
-      var circle = document.createElement('span');
-      circle.className = 'index-circle';
+      var num = document.createElement('span');
+      num.className = 'index-num';
+      num.textContent = String(index + 1).padStart(2, '0');
 
+      var thumb = document.createElement('span');
+      thumb.className = 'index-thumb';
       var img = document.createElement('img');
       img.loading = 'lazy';
       img.decoding = 'async';
       img.alt = '';
-      img.src = video.poster || driveThumb(video.id);
-      circle.appendChild(img);
+      img.src = posterUrlFor(video);
+      thumb.appendChild(img);
 
+      var mainInfo = document.createElement('span');
+      mainInfo.className = 'index-main';
       var name = document.createElement('span');
       name.className = 'index-name';
       name.textContent = video.title || '';
+      mainInfo.appendChild(name);
 
-      link.appendChild(circle);
-      link.appendChild(name);
+      if (video.client) {
+        var client = document.createElement('span');
+        client.className = 'index-client';
+        client.textContent = video.client;
+        mainInfo.appendChild(client);
+      }
+
+      var tag = document.createElement('span');
+      tag.className = 'index-tag';
+
+      var arrow = document.createElement('span');
+      arrow.className = 'index-arrow';
+      arrow.setAttribute('aria-hidden', 'true');
+      arrow.textContent = '↗';
+
+      link.appendChild(num);
+      link.appendChild(thumb);
+      link.appendChild(mainInfo);
+      link.appendChild(tag);
+      link.appendChild(arrow);
+
+      link.addEventListener('mouseenter', function () {
+        updateIndexPreview(video);
+      });
+      link.addEventListener('focus', function () {
+        updateIndexPreview(video);
+      });
+      link.addEventListener('click', function () {
+        if (index >= 3 && !state.casesExpandedMobile) {
+          state.casesExpandedMobile = true;
+          syncMobileCasesState();
+        }
+      });
+
       els.indexList.appendChild(link);
     });
+
+    if (state.videos.length) {
+      updateIndexPreview(state.videos[0]);
+    }
   }
 
   /* -------------------------------------------------------
-     i18n y textos dinámicos
+     i18n & Dynamic Text
      ------------------------------------------------------- */
 
   function updateDynamicText() {
@@ -636,11 +1106,15 @@
     if (els.indexList) {
       els.indexList.querySelectorAll('.index-item').forEach(function (item) {
         var video = state.videos[Number(item.dataset.index)];
-        if (video) {
-          item.setAttribute(
-            'aria-label',
-            dict.index_go + ': ' + (video.title || '')
-          );
+        if (!video) return;
+        item.setAttribute(
+          'aria-label',
+          dict.index_go + ': ' + (video.title || '')
+        );
+        var tagEl = item.querySelector('.index-tag');
+        if (tagEl) {
+          var tag = state.lang === 'en' ? video.tag_en : video.tag_es;
+          tagEl.textContent = tag || formatRatio(video);
         }
       });
     }
@@ -650,19 +1124,44 @@
         var video = state.videos[Number(article.dataset.index)];
         if (!video) return;
 
-        var typeValue = article.querySelector('.case-type');
-        if (typeValue) {
+        var details = getCaseDetails(video);
+
+        var typePill = article.querySelector('.case-type');
+        if (typePill) {
           var tag = state.lang === 'en' ? video.tag_en : video.tag_es;
-          var typeRow = typeValue.closest('.ficha-type');
-          if (typeRow) typeRow.hidden = !tag;
-          typeValue.textContent = tag || '';
+          typePill.textContent = tag || formatRatio(video);
         }
 
         var desc = article.querySelector('.case-desc');
         if (desc) {
-          var text = state.lang === 'en' ? video.desc_en : video.desc_es;
-          desc.textContent = text || '';
-          desc.hidden = !text;
+          desc.textContent = details.desc;
+        }
+
+        var tagsWrap = article.querySelector('.case-tags');
+        if (tagsWrap) {
+          tagsWrap.innerHTML = '';
+          details.tags.forEach(function (tagText) {
+            var span = document.createElement('span');
+            span.className = 'case-tag';
+            span.textContent = tagText;
+            tagsWrap.appendChild(span);
+          });
+        }
+
+        var specsList = article.querySelector('.case-specs');
+        if (specsList) {
+          specsList.innerHTML = '';
+          details.specs.forEach(function (spec) {
+            var box = document.createElement('div');
+            box.className = 'case-spec';
+            var dt = document.createElement('dt');
+            dt.textContent = dict[spec.labelKey] || spec.labelKey;
+            var dd = document.createElement('dd');
+            dd.textContent = spec.value;
+            box.appendChild(dt);
+            box.appendChild(dd);
+            specsList.appendChild(box);
+          });
         }
 
         article.querySelectorAll('.metric-label').forEach(function (label) {
@@ -671,9 +1170,18 @@
           label.textContent = value || '';
         });
 
+        var mediaWrap = article.querySelector('.case-media-wrap');
+        if (mediaWrap) {
+          mediaWrap.setAttribute(
+            'aria-label',
+            dict.open_video + ': ' + (video.title || '')
+          );
+        }
+
         var openButton = article.querySelector('.case-open');
         if (openButton) {
-          openButton.textContent = dict.case_open;
+          var openLabel = openButton.querySelector('.case-open-label');
+          if (openLabel) openLabel.textContent = dict.case_open;
           openButton.setAttribute(
             'aria-label',
             dict.case_open + ': ' + (video.title || '')
@@ -682,10 +1190,23 @@
       });
     }
 
+    if (els.heroPlayBtn) {
+      els.heroPlayBtn.setAttribute('aria-label', dict.hero_play_aria);
+    }
+    if (els.heroProgress) {
+      els.heroProgress.setAttribute('aria-label', dict.hero_progress_aria);
+    }
+
     var heroVideo = state.heroItems[state.heroIndex];
     if (heroVideo) {
       els.heroSep.hidden = !heroVideo.video.client;
     }
+
+    if (state.videos.length) {
+      updateIndexPreview(state.videos[0]);
+    }
+
+    syncMobileCasesState();
   }
 
   function applyTranslations() {
@@ -744,7 +1265,7 @@
   }
 
   /* -------------------------------------------------------
-     Carga del manifiesto
+     Load Manifest
      ------------------------------------------------------- */
 
   function showLoadError() {
@@ -797,53 +1318,99 @@
     renderReel();
     renderCases();
     renderIndex();
-    observePalettes();
+    observeReveals();
+    setupNavObserver();
   }
 
   /* -------------------------------------------------------
-     Paletas por sección
+     Scroll Reveals, Spotlight & Active Nav Observer
      ------------------------------------------------------- */
 
-  function setPalette(palette) {
-    if (!palette) return;
-    if (document.body.dataset.palette === palette) return;
-    document.body.dataset.palette = palette;
-  }
+  function observeReveals() {
+    var nodes = Array.prototype.slice.call(
+      document.querySelectorAll('.reveal:not(.is-visible)')
+    );
+    if (!nodes.length) return;
 
-  function observePalettes() {
-    if (!('IntersectionObserver' in window)) return;
-    if (!paletteObserver) {
-      paletteObserver = new IntersectionObserver(
+    if (state.reduced || !('IntersectionObserver' in window)) {
+      nodes.forEach(function (node) {
+        node.classList.add('is-visible');
+      });
+      return;
+    }
+
+    if (!revealObserver) {
+      revealObserver = new IntersectionObserver(
         function (entries) {
-          var article = null;
-          var section = null;
-
           entries.forEach(function (entry) {
             if (!entry.isIntersecting) return;
-            if (entry.target.tagName === 'ARTICLE') {
-              if (
-                !article ||
-                entry.intersectionRatio > article.intersectionRatio
-              ) {
-                article = entry;
-              }
-            } else if (
-              !section ||
-              entry.intersectionRatio > section.intersectionRatio
-            ) {
-              section = entry;
-            }
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
           });
-
-          var chosen = article || section;
-          if (chosen) setPalette(chosen.target.dataset.palette);
         },
-        { rootMargin: '-45% 0px -45% 0px', threshold: [0, 0.25, 0.5, 1] }
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
       );
     }
 
-    document.querySelectorAll('[data-palette]').forEach(function (el) {
-      paletteObserver.observe(el);
+    nodes.forEach(function (node) {
+      revealObserver.observe(node);
+    });
+  }
+
+  function setupSpotlightEffect() {
+    if (
+      state.reduced ||
+      !window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    ) {
+      return;
+    }
+
+    document.addEventListener(
+      'pointermove',
+      function (event) {
+        var card = event.target.closest('.spotlight-card');
+        if (!card) return;
+        var rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', event.clientX - rect.left + 'px');
+        card.style.setProperty('--mouse-y', event.clientY - rect.top + 'px');
+      },
+      { passive: true }
+    );
+  }
+
+  function setupNavObserver() {
+    if (!('IntersectionObserver' in window)) return;
+    if (navObserver) navObserver.disconnect();
+
+    var links = Array.prototype.slice.call(
+      document.querySelectorAll('.nav-links a[href^="#"]')
+    );
+    if (!links.length) return;
+
+    navObserver = new IntersectionObserver(
+      function (entries) {
+        var best = null;
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          if (!best || entry.intersectionRatio > best.intersectionRatio) {
+            best = entry;
+          }
+        });
+        if (!best) return;
+        var activeId = '#' + best.target.id;
+        links.forEach(function (link) {
+          link.classList.toggle(
+            'is-active',
+            link.getAttribute('href') === activeId
+          );
+        });
+      },
+      { rootMargin: '-35% 0px -45% 0px', threshold: [0.1, 0.4] }
+    );
+
+    ['reel', 'casos', 'indice', 'perfil', 'contacto'].forEach(function (id) {
+      var section = document.getElementById(id);
+      if (section) navObserver.observe(section);
     });
   }
 
@@ -918,7 +1485,7 @@
   }
 
   /* -------------------------------------------------------
-     Menú móvil
+     Mobile Menu
      ------------------------------------------------------- */
 
   function toggleMenu(force) {
@@ -928,30 +1495,49 @@
 
     els.menuOverlay.hidden = !open;
     els.menuBtn.setAttribute('aria-expanded', String(open));
-    els.menuBtn.dataset.i18n = open ? 'menu_close' : 'nav_menu';
-    els.menuBtn.textContent = t(open ? 'menu_close' : 'nav_menu');
+    els.menuBtn.setAttribute('aria-label', t(open ? 'menu_close' : 'nav_menu'));
+
+    if (els.menuBtnLabel) {
+      els.menuBtnLabel.dataset.i18n = open ? 'menu_close' : 'nav_menu';
+      els.menuBtnLabel.textContent = t(open ? 'menu_close' : 'nav_menu');
+    }
+
     document.body.classList.toggle('menu-open', open);
   }
 
   /* -------------------------------------------------------
-     Inicialización
+     Init
      ------------------------------------------------------- */
 
   function cacheElements() {
     els.heroSection = document.getElementById('inicio');
     els.heroStage = document.getElementById('heroStage');
+    els.heroAmbient = document.getElementById('heroAmbient');
+    els.heroProgress = document.getElementById('heroProgress');
     els.heroClient = document.getElementById('heroClient');
     els.heroTitleLabel = document.getElementById('heroTitleLabel');
     els.heroSep = document.getElementById('heroSep');
+    els.heroPlayBtn = document.getElementById('heroPlayBtn');
 
     els.reelTrack = document.getElementById('reelTrack');
     els.reelViewport = document.querySelector('.reel-viewport');
     els.reelControls = document.getElementById('reelControls');
+    els.reelFilters = document.getElementById('reelFilters');
+    els.reelProgressFill = document.getElementById('reelProgressFill');
+    els.reelCounter = document.getElementById('reelCounter');
     els.reelPrev = document.getElementById('reelPrev');
     els.reelNext = document.getElementById('reelNext');
 
     els.casesList = document.getElementById('casesList');
+    els.casesToggleWrap = document.getElementById('casesToggleWrap');
+    els.casesToggleBtn = document.getElementById('casesToggleBtn');
+
     els.indexList = document.getElementById('indexList');
+    els.indexCount = document.getElementById('indexCount');
+    els.indexPreview = document.getElementById('indexPreview');
+    els.indexPreviewImg = document.getElementById('indexPreviewImg');
+    els.indexPreviewClient = document.getElementById('indexPreviewClient');
+    els.indexPreviewTitle = document.getElementById('indexPreviewTitle');
 
     els.modal = document.getElementById('videoModal');
     els.modalTitle = document.getElementById('modalTitle');
@@ -962,6 +1548,9 @@
     els.modalNext = document.getElementById('modalNext');
 
     els.menuBtn = document.getElementById('menuBtn');
+    els.menuBtnLabel = els.menuBtn
+      ? els.menuBtn.querySelector('.menu-btn-label')
+      : null;
     els.menuOverlay = document.getElementById('menuOverlay');
 
     els.langButtons = Array.prototype.slice.call(
@@ -990,6 +1579,15 @@
       });
     }
 
+    if (els.heroPlayBtn) {
+      els.heroPlayBtn.addEventListener('click', function () {
+        var current = state.heroItems[state.heroIndex];
+        if (!current) return;
+        var globalIdx = state.videos.indexOf(current.video);
+        if (globalIdx >= 0) openModal(globalIdx);
+      });
+    }
+
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && els.menuOverlay && !els.menuOverlay.hidden) {
         toggleMenu(false);
@@ -1000,10 +1598,17 @@
 
     if (els.casesList) {
       els.casesList.addEventListener('click', function (event) {
-        var button = event.target.closest('.case-open');
-        if (!button) return;
-        var index = Number(button.dataset.index);
+        var trigger = event.target.closest('.case-open, .case-media-wrap');
+        if (!trigger) return;
+        var index = Number(trigger.dataset.index);
         if (Number.isInteger(index)) openModal(index);
+      });
+    }
+
+    if (els.casesToggleBtn) {
+      els.casesToggleBtn.addEventListener('click', function () {
+        state.casesExpandedMobile = !state.casesExpandedMobile;
+        syncMobileCasesState();
       });
     }
 
@@ -1027,6 +1632,18 @@
         navigateModal(1);
       });
     }
+
+    // Re-sync mobile cases media vs desktop video when crossing 767px breakpoint
+    var mq = window.matchMedia('(max-width: 767px)');
+    var handleBreakpointChange = function () {
+      if (state.videos.length) {
+        renderCases();
+        updateDynamicText();
+      }
+    };
+    if (typeof mq.addEventListener === 'function') {
+      mq.addEventListener('change', handleBreakpointChange);
+    }
   }
 
   function init() {
@@ -1036,14 +1653,15 @@
     state.reduced =
       window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
       Boolean(
-        navigator.connection &&
-          navigator.connection.saveData === true
+        navigator.connection && navigator.connection.saveData === true
       );
 
     setupPlaybackObserver();
     setupHeroVisibility();
+    setupSpotlightEffect();
     bindUI();
     applyTranslations();
+    observeReveals();
     loadVideos();
   }
 
