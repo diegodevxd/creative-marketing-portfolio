@@ -492,16 +492,21 @@ main {
   line-height: 1.55;
 }
 
-/* Scroll reveal animation */
+/* Scroll reveal animation (progressive enhancement when js-ready is present) */
 .reveal {
-  opacity: 0;
-  transform: translateY(22px);
+  opacity: 1;
+  transform: none;
   transition:
     opacity 680ms var(--ease-spring),
     transform 680ms var(--ease-spring);
 }
 
-.reveal.is-visible {
+html.js-ready .reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+html.js-ready .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -621,12 +626,16 @@ main {
 }
 
 .hero-monitor-shell {
-  width: min(100%, 380px);
+  width: fit-content;
+  max-width: 100%;
 }
 
 .hero-monitor-core {
   position: relative;
-  aspect-ratio: 9 / 15.5;
+  height: clamp(440px, 64dvh, 560px);
+  width: auto;
+  aspect-ratio: 9 / 16;
+  margin-inline: auto;
   background: #050507;
 }
 
@@ -692,10 +701,9 @@ main {
 }
 
 .hero-stage {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 1;
-  width: 100%;
-  height: 100%;
 }
 
 .hero-layer {
@@ -878,13 +886,21 @@ main {
 
 .reel-item {
   flex: 0 0 auto;
-  width: max-content;
+  width: 268px;
   scroll-snap-align: center;
   transform: scale(0.94);
   opacity: 0.68;
   transition:
     transform 450ms var(--ease-spring),
     opacity 450ms var(--ease-fluid);
+}
+
+.reel-item--vertical {
+  width: 268px;
+}
+
+.reel-item--horizontal {
+  width: 460px;
 }
 
 .reel-item.is-centered,
@@ -895,13 +911,14 @@ main {
 }
 
 .reel-card-shell {
+  width: 100%;
   padding: 5px;
   border-radius: 22px;
 }
 
 .reel-media-btn {
   display: block;
-  width: max-content;
+  width: 100%;
   padding: 0;
   border: 0;
   background: none;
@@ -912,8 +929,8 @@ main {
 
 .reel-media {
   position: relative;
-  height: min(60dvh, 540px);
-  aspect-ratio: var(--ar, 9 / 16);
+  width: 100%;
+  height: 440px;
   border-radius: 17px;
   overflow: hidden;
   background: #050507;
@@ -921,6 +938,8 @@ main {
 
 .reel-media video,
 .reel-media img {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
@@ -1076,8 +1095,7 @@ main {
   scroll-margin-top: 5.5rem;
 }
 
-.case.case--horizontal,
-.case.case--vertical.is-last-odd {
+.case.is-last-odd {
   grid-column: span 12;
 }
 
@@ -1088,19 +1106,20 @@ main {
 
 .case-grid {
   display: grid;
-  grid-template-columns: minmax(175px, 41%) minmax(0, 1fr);
-  gap: clamp(1rem, 2vw, 1.65rem);
+  grid-template-columns: 205px minmax(0, 1fr);
+  gap: 1.35rem;
   height: 100%;
   align-items: stretch;
 }
 
 .case--horizontal .case-grid {
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.1rem;
+  align-items: start;
 }
 
 .case--vertical.is-last-odd .case-grid {
-  grid-template-columns: 260px minmax(0, 1.1fr) minmax(0, 0.9fr);
+  grid-template-columns: 240px minmax(0, 1.1fr) minmax(0, 0.9fr);
   align-items: stretch;
 }
 
@@ -1119,8 +1138,8 @@ main {
 .case-media-wrap {
   position: relative;
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 205px;
+  height: 350px;
   padding: 0;
   border: 0;
   border-radius: 14px;
@@ -1129,27 +1148,29 @@ main {
   cursor: pointer;
 }
 
+.case--horizontal .case-media-wrap {
+  width: 100%;
+  height: 210px;
+}
+
+.case--vertical.is-last-odd .case-media-wrap {
+  width: 240px;
+  height: 390px;
+}
+
 .case-media {
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  min-height: 290px;
-  aspect-ratio: var(--ar, 9 / 16);
   overflow: hidden;
   background: #050507;
 }
 
-.case--horizontal .case-media {
-  min-height: 0;
-  aspect-ratio: 16 / 9;
-}
-
-.case--vertical.is-last-odd .case-media {
-  min-height: 360px;
-}
-
 .case-media video,
 .case-media img {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
@@ -1280,6 +1301,10 @@ main {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.6rem;
   margin: 0;
+}
+
+.case--horizontal .case-specs {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .case-spec {
@@ -1945,21 +1970,36 @@ body.modal-open {
    Responsive & Mobile Anti-Saturation Layout
    --------------------------------------------------------- */
 
-@media (max-width: 1120px) {
+@media (max-width: 1079px) {
   .case {
     grid-column: span 12;
   }
 
-  .case--vertical .case-grid {
-    grid-template-columns: minmax(190px, 34%) minmax(0, 1fr);
+  .case--vertical .case-grid,
+  .case--vertical.is-last-odd .case-grid {
+    grid-template-columns: 205px minmax(0, 1fr);
   }
 
-  .case--vertical.is-last-odd .case-grid {
-    grid-template-columns: minmax(190px, 34%) minmax(0, 1fr);
+  .case--vertical.is-last-odd .case-media-wrap {
+    width: 205px;
+    height: 350px;
   }
 
   .case--vertical.is-last-odd .case-info {
     display: flex;
+  }
+
+  .case--horizontal .case-grid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .case--horizontal .case-media-wrap {
+    height: 260px;
+  }
+
+  .case--horizontal .case-specs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .profile-main-card,
@@ -1974,8 +2014,8 @@ body.modal-open {
     gap: 2rem;
   }
 
-  .hero-monitor-shell {
-    width: min(100%, 300px);
+  .hero-monitor-core {
+    height: 440px;
   }
 
   .index-layout {
@@ -2038,21 +2078,26 @@ body.modal-open {
     padding: 0.25rem 0.55rem;
   }
 
-  .hero-monitor-shell {
-    width: min(100%, 260px);
-  }
-
   .hero-monitor-core {
-    aspect-ratio: 9 / 14;
+    height: 390px;
   }
 
   .reel-item {
+    width: 220px;
     transform: scale(0.96);
     opacity: 0.84;
   }
 
+  .reel-item--vertical {
+    width: 220px;
+  }
+
+  .reel-item--horizontal {
+    width: 300px;
+  }
+
   .reel-media {
-    height: 52dvh;
+    height: 360px;
   }
 
   .reel-controls {
@@ -2082,6 +2127,7 @@ body.modal-open {
   }
 
   .case-grid,
+  .case--vertical .case-grid,
   .case--horizontal .case-grid,
   .case--vertical.is-last-odd .case-grid {
     grid-template-columns: 100px minmax(0, 1fr);
@@ -2089,13 +2135,11 @@ body.modal-open {
     align-items: start;
   }
 
-  .case-media,
-  .case--horizontal .case-media,
-  .case--vertical.is-last-odd .case-media {
+  .case-media-wrap,
+  .case--horizontal .case-media-wrap,
+  .case--vertical.is-last-odd .case-media-wrap {
     width: 100px;
     height: 148px;
-    min-height: 0;
-    aspect-ratio: auto;
   }
 
   .case-media-play {

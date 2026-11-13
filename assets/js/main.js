@@ -597,8 +597,12 @@
       var video = entry.video;
       var globalIndex = entry.globalIndex;
 
+      var isHorizontal = video.orientation === 'horizontal';
       var item = document.createElement('article');
-      item.className = 'reel-item' + (pos === 0 ? ' is-centered' : '');
+      item.className =
+        'reel-item ' +
+        (isHorizontal ? 'reel-item--horizontal' : 'reel-item--vertical') +
+        (pos === 0 ? ' is-centered' : '');
       item.dataset.index = String(globalIndex);
       item.dataset.pos = String(pos);
 
@@ -799,31 +803,11 @@
 
     var mobileMode = isMobileViewport();
 
-    // Determine if the last vertical card sits alone on an odd row (desktop 2-col rhythm)
-    var verticalIndices = [];
-    state.videos.forEach(function (v, idx) {
-      if (v.orientation !== 'horizontal') verticalIndices.push(idx);
-    });
-    // Check runs of consecutive vertical items
-    var oddVerticalIndices = new Set();
-    var runCount = 0;
-    state.videos.forEach(function (v, idx) {
-      if (v.orientation === 'horizontal') {
-        if (runCount % 2 === 1 && idx > 0) {
-          oddVerticalIndices.add(idx - 1);
-        }
-        runCount = 0;
-      } else {
-        runCount += 1;
-      }
-    });
-    if (runCount % 2 === 1 && state.videos.length > 0) {
-      oddVerticalIndices.add(state.videos.length - 1);
-    }
+    var hasOddLast = state.videos.length % 2 === 1;
 
     state.videos.forEach(function (video, index) {
       var isHorizontal = video.orientation === 'horizontal';
-      var isLastOdd = !isHorizontal && oddVerticalIndices.has(index);
+      var isLastOdd = hasOddLast && index === state.videos.length - 1;
 
       var article = document.createElement('article');
       article.className =
@@ -1355,6 +1339,18 @@
     nodes.forEach(function (node) {
       revealObserver.observe(node);
     });
+
+    window.setTimeout(function () {
+      var vh = window.innerHeight || 900;
+      nodes.forEach(function (node) {
+        if (node.classList.contains('is-visible')) return;
+        var rect = node.getBoundingClientRect();
+        if (rect.top < vh * 1.15) {
+          node.classList.add('is-visible');
+          if (revealObserver) revealObserver.unobserve(node);
+        }
+      });
+    }, 600);
   }
 
   function setupSpotlightEffect() {
@@ -1647,6 +1643,7 @@
   }
 
   function init() {
+    document.documentElement.classList.add('js-ready');
     cacheElements();
 
     state.lang = readLanguage();
